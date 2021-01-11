@@ -1,0 +1,21 @@
+{
+    "name": "root/ioMode",
+    "description": "study io mode",
+    "type": "library",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "lw",
+            "email": "liweiphp@163.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ioMode\\": "src"
+        },
+        "files": [
+            "src/Support/Helper.php"
+        ]
+    },
+    "require": {}
+}
