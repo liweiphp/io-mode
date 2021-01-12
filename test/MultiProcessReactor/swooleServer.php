@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/../../vendor/autoload.php";
 
-use ioMode\Reactor\MultiProcess\Worker;
+use ioMode\SwooleAsync\MultiProcess\Worker;
 
 $server = new Worker('192.168.56.102', 9160);
 

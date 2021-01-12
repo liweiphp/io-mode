@@ -10,13 +10,14 @@ class Worker extends CoreBase
         while (true) {
             $conn = stream_socket_accept($this->server);
             if ($conn) {
-                $this->event['connect']($this, $conn);
+                call_user_func($this->events['connect'], $this, $conn);
                 $data = fread($conn, 65535);
-                $this->event['receive']($this, $conn, $data);
+                dd("receive event");
+                call_user_func($this->events['receive'], $this, $conn, $data);
 
                 if (get_resource_type($conn)=="Unknown") {
                     dd($conn, 'close event');
-                    $this->event['close']($this, $conn);
+                    call_user_func($this->events['close'], $this, $conn);
                 }
             }
 

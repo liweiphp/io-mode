@@ -28,7 +28,6 @@ class Worker extends CoreBase
             if ($conn) {
                 call_user_func($this->events['connect'], $this, $conn);
             }
-            dd(posix_getppid(), "PID");
             (new Connection($this, $conn))->handler();//传值方式不能在handler里面传
         };
 

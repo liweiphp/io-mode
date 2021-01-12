@@ -7,8 +7,8 @@
  */
 
 
-namespace ioMode\Reactor\MultiProcess;
-use ioMode\Reactor\Worker as CoreBase;
+namespace ioMode\SwooleAsync\MultiProcess;
+use ioMode\SwooleAsync\Worker as CoreBase;
 
 class Worker extends CoreBase
 {
@@ -29,6 +29,7 @@ class Worker extends CoreBase
                 dd("error", "multiReactor fork create process error");
             } elseif ($pid==0){
                 $this->accept();
+                exit();
             }
         }
 

@@ -3,15 +3,15 @@
  * Created by PhpStorm.
  * User: weili
  * Date: 2021-01-20
- * Time: 14:40
+ * Time: 16:00
  */
 
-
-namespace ioMode\Reactor\MultiProcess;
-use ioMode\Reactor\Worker as CoreBase;
+namespace ioMode\MultiBlocking;
+use ioMode\Blocking\Worker as CoreBase;
 
 class Worker extends CoreBase
 {
+
     public $config = [
         'work_num' => 4
     ];
@@ -26,7 +26,7 @@ class Worker extends CoreBase
             }
 
             if ($pid<0) {
-                dd("error", "multiReactor fork create process error");
+                dd("error", "multiBlocking fork create process error");
             } elseif ($pid==0){
                 $this->accept();
             }

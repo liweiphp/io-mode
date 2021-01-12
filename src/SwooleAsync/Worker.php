@@ -12,23 +12,18 @@ use Swoole\Event;
 
 class Worker extends CoreBase
 {
-//    public function __construct($host, $port, $type = 'tcp')
-//    {
-//        parent::__construct($host, $port, $type);
-//        stream_set_blocking($this->server, 0);
-//    }
 
     protected function accept()
     {
         // TODO: Implement accept() method.
         Event::add($this->server, $this->createConn());
-//        Swoole\Event::wait();
 
     }
 
     protected function createConn()
     {
         return function ($socket) {
+            dd("swoole accept");
             $conn = stream_socket_accept($socket);
             dd(get_resource_type($conn), "connect");
             if ($conn) {
@@ -43,7 +38,6 @@ class Worker extends CoreBase
         return function ($socket){
             // 接收服务的信息
             $data = fread($socket, 65535);
-            dd($data, "send data");
             if ('' === $data || false === $data) {
                 $this->checkConn($data, $socket);
             } else {
@@ -55,7 +49,6 @@ class Worker extends CoreBase
     // 校验连接
     protected function checkConn($buffer, $conn)
     {
-        dd($buffer, "check data");
         if (\strlen($buffer) === 0) {
             if (get_resource_type($conn) != "Unknown"){
                 Event::del($conn);

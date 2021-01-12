@@ -28,7 +28,6 @@ class Connection
         return function ($socket){
             // 接收服务的信息
             $data = fread($socket, 65535);
-            dd($data, "send data");
             if ('' === $data || false === $data) {
                 $this->checkConn($data, $socket);
             } else {
@@ -40,7 +39,6 @@ class Connection
     // 校验连接
     protected function checkConn($buffer, $conn)
     {
-        dd($buffer, "the data");
         if (\strlen($buffer) === 0) {
             if (! \get_resource_type($conn) == "Unknown"){
                 // 断开连接
