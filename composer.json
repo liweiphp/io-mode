@@ -2,7 +2,7 @@
     "name": "lwphp/io-mode",
     "description": "study io mode",
     "type": "library",
-    "license": "",
+    "license": "MIT",
     "authors": [
         {
             "name": "lw",
