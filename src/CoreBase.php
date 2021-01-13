@@ -10,7 +10,7 @@ abstract class CoreBase
     public function __construct($host, $port, $type = 'tcp')
     {
         $this->type = $type;
-        $this->server = stream_socket_server($type.'://'.$host.':'.$port, $erron, $error);
+        $this->server = stream_socket_server('tcp://'.$host.':'.$port, $erron, $error);
     }
 
     /**
