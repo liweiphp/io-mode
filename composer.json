@@ -1,5 +1,5 @@
 {
-    "name": "root/ioMode",
+    "name": "lwphp/ioMode",
     "description": "study io mode",
     "type": "library",
     "license": "mit",
