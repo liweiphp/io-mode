@@ -3,7 +3,6 @@
     "description": "study io mode",
     "type": "library",
     "license": "MIT",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "lw",
