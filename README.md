@@ -5,6 +5,14 @@
 安装命令：
 composer require lwphp/io-mode:main-dev -vvv
 
+依赖：
+php>=7
+
+event
+
+pcntl
+
+
 1.阻塞模型
 
 2.非阻塞模型
