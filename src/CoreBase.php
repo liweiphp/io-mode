@@ -9,8 +9,13 @@ abstract class CoreBase
     protected $type = 'tcp';
     public function __construct($host, $port, $type = 'tcp')
     {
+        if ($type == 'udp') {
+            $flags = STREAM_SERVER_BIND;
+        } else {
+            $flags = STREAM_SERVER_BIND | STREAM_SERVER_LISTEN;
+        }
         $this->type = $type;
-        $this->server = stream_socket_server('tcp://'.$host.':'.$port, $erron, $error);
+        $this->server = stream_socket_server($this->type . '://'.$host.':'.$port, $erron, $error, $flags);
     }
 
     /**
